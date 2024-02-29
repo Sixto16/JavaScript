@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIOS DE LOGICA</title>
+</head>
+<body>
+<script>
+
+/*1) Programa una función que cuente el número de caracteres de una cadena de texto, 
+pe.miFuncion("Hola Mundo") devolverá 10.*/
+
+//-----------Forma Funcion Declarada-------------------
+/*
+let nombre = prompt("Ingrese un nombre")
+
+
+function contarCaracteres(cadena = ""){
+ 
+  if(!cadena){
+    console.warn("No ingresaste ningun caracter");
+  }
+  else{
+  console.info(`El numero de caracteres de la cadena es ${cadena.length}`);
+  }
+}
+
+contarCaracteres(nombre);*/
+
+
+//-----------Con Arrow Funtion con Operador Ternario-------------------
+
+//1)Contar numero de caracteres de una cadena
+
+/*
+const contarCaracteres = (cadena = "") => //Si no se ingresa nada la cadena sera igual a vacio(es decir false).
+
+ //Usando OPERADOR TERNARIO(Es una simplificacion del if - else).
+
+  //esto es el IF
+  (!cadena)// Si la cadena equivale a false, es decir si se ingresa una cadena vacia 
+  ?console.warn("No ingresaste ningun caracter")//imprime esto
+
+  //Esto es el ELSE
+  :console.info(`El numero de caracteres de la cadena es ${cadena.length}`);//sino imprime esto
+
+let nombre = prompt("Ingrese un nombre") 
+contarCaracteres(nombre); */
+
+
+
+
+
+/*2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".*/
+
+/*
+//Cadena vacia y Undefined equivalen a False.
+const textoRecortado = (nombre ="", longitud = undefined) => {
+  (!cadena) //Si cadena es False, es decir no se agrego ninguna cadena
+   ?console.warn("No ingresaste ningun caracter") //Imprime esto
+   :(!longitud)//Si longitud es false, es decir no se introdujo ninguna longitud
+    ?console.warn("No ingresaste el numero de caracteres que requiere para recortar el texto o este es igual a cero")//Imprime esto
+    :console.info(`La nueva cadena recortada es: ${cadena.slice(0, longitud)}`);//sino imprime esto.
+}
+
+let cadena = prompt("Ingrese la cadena");
+let longitudDeRecorte = parseInt(prompt("Ingrese el numero de caracteres que quiere recortar"));
+
+textoRecortado(cadena, longitudDeRecorte);*/
+
+
+
+
+
+/*3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].*/
+
+/*
+let textoSeparado = (cadena="") =>
+
+(!cadena)
+?console.warn("No se ha ingresado una cadena de texto")
+
+//Con TEMPLATE STRINGS no funciona
+// :console.log(`La cadena de texto convertida Array es la siguiente: ${cadena.split(" ")}`);
+
+:console.log(cadena.split(" "));//Devuelve un Array de textos separados, al dejar un espacio entre las comillas.
+
+let ingresar = prompt("Ingrese una cadena de texto");
+textoSeparado(ingresar);*/
+
+
+
+
+
+/*4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.*/
+
+/*
+ const repetirTexto = (texto="", repeticiones = undefined) =>{ 
+
+//CONDICIONALES EN BLOQUE (Codigo expresivo)
+//Si voy a usar varios Condicionales, los puedo escribir en bloque omitiendo las llaves
+
+//---------------------------------------VALIDACIONES-----------------------------------------
+   if(!texto) return console.warn("No ingresaste el texto");
+  
+  //Esta linea no funciona, cuando ingreso los datos por teclado
+   if (repeticiones===undefined) return console.warn("No ingresaste el numero de repeticiones del texto");
+  
+   if(repeticiones===0) return console.error("El numero de repeticiones no puede ser cero");
+  
+   if(Math.sign(repeticiones)===-1) return console.error("El numero de repeticiones no puede ser negativo");
+
+
+   //---------------------------------------PROGRAMA-----------------------------------------
+   for(let i=1; i<=repeticiones; i++)console.info(`${texto}, ${i}`);
+
+  
+  }
+
+//  let cadena = prompt("Ingresa una palabra o frase");
+//  let veces = parseInt(prompt("Ingrese el numero de repeticiones"));
+
+ repetirTexto("hola", 12 );*/
+
+
+
+
+
+/* 
+5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".*/
+
+//--------------Forma: Arrow Function y Condicionales-------------------
+/*
+const invertirCadena = (cadena ="") => {
+
+  if (!cadena){
+    console.warn("No introdujo ninguna cadena");
+  }
+
+  else{
+  // Paso 1. Usa el método split() para devolver un nuevo arreglo
+  let separarCadena = cadena.split("");//Al no dejar espacio entre las comillas, convertira cada letra/caracter en un arreglo.
+
+  // Paso 2. Usa el método reverse() para invertir el nuevo arreglo creado
+  let invertirArreglo = separarCadena.reverse();
+
+  // Paso 3. Usa el método join() para unir todos los elementos del arreglo en una cadena
+  let unirArreglo = invertirArreglo.join("");//Al no dejar espacio entre las comillas, unira los caracteres sin espacio.
+
+  //Paso 4. Devolver la cadena invertida
+  return console.log(unirArreglo);
+ }
+}
+
+let nombre = prompt("Ingrese la cadena");
+invertirCadena(nombre);*/
+ 
+//--------------Forma: Arrow Function y Operador Ternario-------------------
+
+/*
+const invertirCadena = (cadena ="") => 
+
+(!cadena)
+?console.warn("No introdujo ninguna cadena")
+:console.info(cadena.split("").reverse().join(""));
+
+let nombre = prompt("Ingrese la cadena");
+invertirCadena(nombre);*/
+
+
+
+
+
+/*
+6) Programa una función para contar el número de veces que se repite una palabra o caracter en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.*/
+
+//Para este problema vamos a introducir la cadena y la frase o texto a contar.
+
+/*
+const  textoEnCadena = (cadena = "", palabra = "") =>{
+
+//---------------------------------------VALIDACIONES----------------------------------------- 
+if(!cadena) return console.warn("No introdujo ninguna cadena");
+
+if(!palabra) return console.warn("No ingresaste la palabra o caracter a evaluar");
+
+
+//-----------------------------------------PROGRAMA-----------------------------------------
+//Usamos un WHILE
+
+let i=0,
+   contador=0;
+
+while(i!==-1){
+
+//El método indexOf() nos ofrecerá el primer índice en el que se puede encontrar un elemento dado en el array, ó en su defecto retornará el valor -1 si el elemento no está presente.
+
+i=cadena.indexOf(palabra, i);//A la propiedad indexOf se le debe introducir la palabra a buscar y la posicion en que se desea buscar esta palabra. La propiedad arrojara la posicion si la palabra se encuentra en en la cadena, ó -1 sino esta.
+
+
+if(i!==-1){//Si se encuentran coincidencias, entonces los contadores de i y contador aumentan en 1
+  i++;
+  contador++;
+
+}
+
+}
+return console.info(`la palabra ${palabra} se repite ${contador} veces`);
+}
+
+let frase = prompt("Ingrese la frase");
+let texto = prompt("Ingrese la palabra a buscar en la frase")
+
+textoEnCadena(frase, texto);*/
+
+
+
+
+
+
+/*
+7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.*/
+
+//---------MI FORMA---------------------------
+/*
+const palindromo = (frase = "") => {
+
+frase = frase.toLocaleUpperCase();
+let alReves = frase.split("").reverse().join("");
+
+
+if(!frase) return console.log("No ingresaste una frase o palabra");
+
+else if(frase===alReves) return console.info(`Si es palindromo, palabra original ${frase}, palabra al reves ${alReves}`)
+
+else return console.info(`No es palindromo, palabra original ${frase}, palabra al reves ${alReves}`);
+}
+
+let palabra = prompt("Ingrese una frase");
+palindromo(palabra);*/
+
+//---------FORMA CON IF Y OPERADOR TERNARIO---------------------------
+
+/*
+const palindromo = (frase = "") => {
+
+frase = frase.toLocaleUpperCase();
+let alReves = frase.split("").reverse().join("");
+
+
+if(!frase) return console.log("No ingresaste una frase o palabra");
+
+return(frase===alReves)
+?console.info(`Si es palindromo, palabra original ${frase}, palabra al reves ${alReves}`)
+:console.info(`No es palindromo, palabra original ${frase}, palabra al reves ${alReves}`);
+}
+
+let palabra = prompt("Ingrese una frase");
+palindromo(palabra);*/
+
+
+
+
+/*
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
+
+
+const eliminarPatron = (texto ="", patronAEliminar ="") =>
+
+ (!texto) 
+  ?console.warn("No ingresaste ningun texto")
+  :(!patronAEliminar) 
+   ?console.warn("No ingresaste ningun parametro o letra a eliminar")
+   :console.log(texto.replace(new RegExp(patronAEliminar, "ig"), "")) //Para usar REPLACE introducimos dos parametros. Se usa una EXPRESION REGULAR (fundamentos 5) para buscar en el texto el patronAEliminar y como segundo parametro una cadena vacia sin espacio para reemplazar en el patronAEliminar.
+
+   //replace("patron a buscar", "patron a remplazar")
+
+let cadena = prompt("Ingrese una frase");
+let palabra = prompt("Ingrese la palabra a eliminar");
+
+eliminarPatron(cadena, palabra);
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

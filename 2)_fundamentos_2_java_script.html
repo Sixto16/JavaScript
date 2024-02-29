@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Fundamentos Parte 2 Java Script</h1>   
+
+    <script>
+
+console.log
+    ("***************************************OPERADORES****************************************");
+/*Clase 13 Operadores*/
+
+//--------------------Operadores Arimeticos: +, -, *, /, %; agrupación()----------------------- 
+let a = 5+5-10*3; 
+let b = 50+50-25*0+5+5;
+let modulo = 5%2; // devuelve el residuo de una división.
+console.log(a, b, modulo) 
+
+//---------------------Operadores Relaciones: <, >, <=, >=, ==, ===, !=, !== -------------------
+console.log(8>9);
+console.log(8<9);
+console.log(8>=9);
+console.log(8<=9);
+console.log(8==8);
+
+// 1 Igual = Equivale asignación de variables
+// 2 Iguales == Equivalen a comparación de valores
+// 3 Iguales === Equivalen a comparación de tipo de dato y de valor (Es La Mejor practica)
+
+//Si hacemos la comparación con dos iguales, solo va a comparar los valores
+console.log(8==8);
+console.log("8"==8);
+console.log(0==false);
+
+//Si hacemos la comparación con tres iguales, no solo va a comparar los valores, sino que comparara si son datos semenjates
+console.log(8===8);
+console.log("8"===8);
+console.log(0===false);
+
+//----------------Operadores relacionales (Incremento/Decremento)-------------------------------
+
+let i = 1; /*Este operador relacional es muy utilizado en contadores, Para este caso se declara una variable i=1, o puede ser cualquier otra letra */
+i = i+2; //Y se puede incrementar haciendo que i se igual a su valor i  más 2  (i = i+2)
+
+let z = 2;
+z+=2; //Aunque una forma más facil de incrementar es esta
+
+let resta = 1;
+resta-=2; //Tambien se utiliza para decrementar
+
+let multiplicacion = 3;
+multiplicacion*=2; //Tambien se utiliza para multiplicar
+
+let c = 1;
+c/=2; //Tambien se utiliza para dividir
+
+console.log(i, z, resta, multiplicacion, c);
+
+
+//----------------------------------Operador Unario---------------------------------------------
+let i2 = 3;
+i2++; // Si se incrementa de uno en uno,  se utiliza esta forma
+console.log(i2);
+
+let i3 = 8
+i3--; // Si se decrementa de uno en uno, se utiliza esta forma
+console.log(++i3);
+
+// ++i2; 
+           // Otras formas poco utilizadas, pero que puede provocar cambios en el flujo del codigo
+// --i2; 
+
+
+//-------------------------------Operadores Logicos Not(!), Or (||), And(&&)---------------
+
+// Not (!) = Niega, es decir lo que es verdadero lo vuelve falso
+console.log(!false);
+console.log(!true);
+
+// Or(||) = Si hay dos o más condiciones, solo basta que una sea verdadera para que se valide la operación:
+console.log((9===9) || ("9"===9)); // Se cumple una condicion es TRUE
+console.log(("9"===9) || ("9"===9));// No se cumple ninguna condicion es FALSE
+
+// And(&&) = Si hay dos o más condiciones, todas tienen que ser verdaderas para que se valide la operación:
+console.log((9===9) && ("9"===9)); // Se cumple una condicion es FALSE
+console.log((9===9) && (9===9));  // Se cumplen las dos condiciones es TRUE
+console.log((9===9) && ("9"==="9"));  // Se cumplen las dos condiciones, a pesar de que cada condicion tiene diferente tipo de dato es TRUE
+console.log(("9"===9) && ("9"===9));// // No se cumple ninguna condicion es FALSE 
+
+
+console.log
+    ("******************************ESTRUCTURAS DE CONTROL*******************************");
+/* Las estructuras de control, permiten modificar el flujo de ejecución de las instrucciones de un programa. Existen varios tipos de Estructuras de control:
+
+1) Estructuras Condicionales
+2) Loops/Bucles/Ciclos o Estructuras Repetitivas */
+
+console.log
+    ("*****************************ESTRUCTURAS CONDICIONALES*********************************");
+/* Clase 14 Estructuras Condicionales */
+
+//----------------------------------------if - else---------------------------------------------
+let edad = 17;
+
+if (edad>17){
+    console.log("Eres mayor de edad")
+}
+else{
+    console.log("Eres menor de edad")
+}
+
+//----------------------------------if - else if - else ----------------------------------------
+
+/*Horarios para saludar 
+
+Déjame dormir = 0hrs - 5hrs
+Buenos dias = 6hrs - 11hrs
+Buenas Tardes = 12hrs - 18hrs
+Buenas Noches = 19hrs - 23hrs */
+
+let hora = 3;
+
+if (hora >= 6 && hora <= 11){
+    console.log("Buenos dias");
+}
+else if (hora >= 12 && hora <= 18){
+    console.log("Buenas tardes");
+}
+else if (hora >= 19 && hora <= 23){
+    console.log("Buenas noches");
+}
+else if (hora >= 0 && hora <= 5){
+    console.log("Déjame dormir");
+}
+else{
+    console.log("La hora indicada es erronea");
+}
+
+//----------------------------------Operador Ternario-------------------------------------------
+
+// Es una simplificacion del if - else, para ejecutarlo en una linea de codigo
+/*  Estructura Operador ternario:
+    Variable = (condicion)? verdadero:falsa
+
+/*Se crea la variable, luego sigue la condicion, seguida de un signo de interrogacion, si esta se cumple se imprime el string que corresponde a verdadero, seguido de dos puntos si es falso, la condicion falsa */
+let edade = 19; 
+
+let eresmayor = (edade>=18)?"Eres mayor de Edad": "Eres menor de edad";
+console.log(eresmayor);
+
+/* Otra forma de presentar el operador ternario
+
+let edade = 19; 
+
+let eresmayor = (edade>=18)
+?"Eres mayor de Edad": 
+"Eres menor de edad";
+console.log(eresmayor); */
+
+
+//---------------------------------------Switch Case-------------------------------------------
+
+/*
+Domingo = 0
+Lunes = 1
+Martes = 2
+Miercoles = 3
+Jueves = 4
+Viernes = 5 
+Sabado = 6
+*/
+
+let dia = 6;
+
+switch(dia){
+
+case 0: 
+console.log("Hoy es Domingo");
+break;
+
+case 1: 
+console.log("Hoy es Lunes");
+break;
+
+case 2: 
+console.log("Hoy es Martes");
+break;
+
+case 3: console.log("Hoy es Miercoles");
+break;
+
+case 4: 
+console.log("Hoy es Jueves");
+break;
+
+case 5: 
+console.log("Hoy es Viernes");
+break;
+
+case 6: 
+console.log("Hoy es Sabado");
+break;
+
+default: 
+console.log("El dia especificado no existe");
+break;
+
+}
+
+
+console.log
+    ("*****************************ESTRUCTURAS REPETITIVAS**********************************");
+
+/* Clase 15 Ciclos, Bucles, loops o estructuras repetitivas */
+
+//------------------------------------While-------------------------------------------------
+let contador = 0;
+while (contador<10){//Primero compara que se cumpla la condicion de que contador sea menor a 10 para luego imprimir 
+console.log("while" + contador);
+contador++ /*Siempre es necesario agregar un incremento o decremento en el numero que se requiera para que las interacciones no tengan un error de ciclos infinitos*/
+}
+
+//------------------------------------Do While-------------------------------------------------
+let contador2 = 0;
+// 
+do{
+//Ejecuta el ciclo al menos un vez y luego verifica que se cumpla la condicion
+console.log("do while" + contador2); 
+contador2++;
+}while(contador2<10);// Deja de imprimir cuando se cumple la condicion
+
+
+//------------------------------------For-------------------------------------------------
+// El bucle For consta de tres partes
+
+/* Estructura = for(inializacion de la variable; condicion; decremento o incremento){
+    Sentencia a ejecutar 1
+    Sentencia a ejecutar 2...
+} */
+
+/*Imprime el incremento en 1(i++) de i que inicia en 0(i=0), hasta que la condicion i<10 no se cumpla más*/
+for(let i=0; i<10; i++){
+    console.log("for" + i);
+}
+
+let numeros = [11, 21, 31, 41, 51, 61, 71, 81, 91];
+/*el contador i recorre el arreglo numeros desde la posicion 0 hasta la longitud final entregada por length,incrementadon en 1*/
+for (let i=0; i<numeros.length; i++){
+    console.log(numeros[i]);//Imprimo los valores que estan dentro del arreglo
+ //console.log(i)//Si quisiera imprimir las posiciones dentro del arreglo
+}
+
+//Para imprimir los valores de manera horizontal
+let numeros2 = [11, 21, 31, 41, 51, 61, 71, 81, 91];
+let resultado2 = "";
+
+for (let i = 0; i < numeros2.length; i++) {
+    resultado2 += numeros2[i] + " ";
+}
+console.log(resultado2.trim());
+
+
+//------------------------------------For In-------------------------------------------------
+// Permite recorrer las propiedades o atributos que tenga un objeto, ejemplo:
+const direccion ={
+    nombre: "Sixto",
+    apellidos: "Orobio",
+    edad:"34",
+}
+
+for(const datos in direccion){// Se define un nombre para los atributos o propiedades(keys y values) del objeto y se introduce el nombre del objeto despues del in
+
+console.log(`Key: ${datos} Value: ${direccion[datos]}`);// Para imprimir  las keys basta con definir el nombre de los atributos o propiedades(datos) y para imprimir los values se hace referencia al nombre del objeto(dirección) y al nombre de los atributos o propiedades (datos)
+}
+
+//------------------------------------For off-------------------------------------------------
+// A diferencia de For in  permite recorrer las propiedades o atributos  de cualquier objeto interable, ejemplo un objeto que contenga arrays o un array o una cadena de texto, ect. Recordar que en javascript todo se puede ver como un objeto. 
+
+//Array
+const proof = ["English", "Germany", "French"];
+
+for (const elemento of proof){//Nombro "elemento" a los atributos del array y despues de of el nombre del array
+console.log(elemento);// Imprimo los atributos
+}
+
+//Para imprimir el array de forma horizontal
+const proof2 = ["English", "Germany", "French"];
+let resultado3 = "";
+
+for (const elemento of proof2){
+    resultado3+= elemento + " "
+}
+console.log(resultado3.trim());
+
+//Igualmente para una cadena de texto recorriendo todos sus caracteres
+let cadena = "Hola Mundo";
+
+for (const caracter of cadena){
+    console.log(caracter);
+}
+
+// Para imprimir de forma horizontal
+let cadena2 = "Hola Mundo";
+let resultado4 = "";
+
+for (const caracter of cadena2){
+    resultado4 += caracter;
+}
+console.log(resultado4);
+
+//------------------------------------Break & Continue-----------------------------------------
+// Clase 17 Break & Continue
+// - Break sirve para salir de la estructura de control en la que esta.
+// - Continue en cambio omiti alguna interaccion especificada 
+// Ejemplo:
+
+//Break
+const grupo = [12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+for (let r=0; r<grupo.length; r++){
+    if (r===4){//Encuanto el contador recorre la posicion 4 del arreglo, sale del bucle
+     break;    //sin imprimir el elemento en esa posicion.
+    }
+console.log(grupo[r]);
+}
+
+//De forma horizontal
+const grupox = [12, 13, 14, 15, 16, 17, 18, 19, 20];
+let horizontal = "";
+
+for (let r=0; r<grupox.length; r++){
+    horizontal+= grupox[r] + " ";
+    if (r===4){
+        break;    
+    }
+}
+console.log(horizontal.trim());
+
+
+//Continue
+const grupo2 = [200, 500, 100, 110, 120, 130, 140];
+
+for (let p=0; p<grupo2.length; p++){
+    if (p===4){//Encuanto el contador recorre la posicion 4, omite esta posicion y continua
+              //recorriendo el arreglo
+        continue;
+    }
+console.log(grupo2[p]);
+}
+
+// De forma horizontal
+const grupoz = [200, 500, 100, 110, 120, 130, 140];
+let horizontal2 = ""
+
+for (let p=0; p<grupoz.length; p++){
+    horizontal2+= grupoz[p] + " ";
+    if (p===4){
+        continue;
+    }
+}
+console.log(horizontal2.trim());
+    </script>
+</body>
+</html>

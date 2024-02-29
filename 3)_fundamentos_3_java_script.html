@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Fundamentos Parte 3 Java Script</h1>   
+
+
+<script>
+
+console.log
+    ("***************************MANEJO DE ERRORES*******************************");
+
+/* Clase 16 Try y Catch. Estructura que permite atrapar Excepciones tambien conocidas como Problemas o Errores. */
+
+try{
+    console.log("En el Try se agrega el codigo a evaluar");
+    noexiste;//Variable introducidad para producir un error.
+    console.log("Segundo mensaje en el Try");//Una vez detectado el error, salta al Catch omitiendo todo el codigo que este despues del error. Es como un return.  
+}catch(error){
+    console.log("Catch, captura cualquier error surgido o lanzado en el Try");
+    console.log(error);//Imprimo el error, si es que lo hay. Y me saldra en la consola.
+}finally{
+    console.log("El bloque Finally siempre se ejecutara al final de un bloque Try-Catch");
+
+}
+
+
+try{
+    let numero = "y";
+    if (isNaN(numero)){//Se crea un if con la condicion de que si el valor introducido en la variable numero no es un numero(isNaN) entonces:
+     throw new Error("El caracter introducido no es un numero"); // Con ayuda de la palabra reservada throw que sirve para lanzar una excepcion, se imprime un mensaje si se cumple la condicion en el if.
+    }
+    console.log(numero*numero);// Si el dato introducido  si es un numero, se salta el condicional e imprime la operación.
+}
+catch(error){
+    console.log(`Se produjo el siguiente error: ${error}`);// si se cumple la condicion se salta la operacion e imprime este mensaje que se concateno con el mensaje lanzado por throw. 
+}
+
+
+console.log
+    ("************************DESTRUCTURACIÓN / DESTRUCTURING*********************************");
+// Clase 18 Destructuración. Es una expresion de JavaScript que permite desempacar valores de arreglos o atributos o propiedades de un objeto en distintas variables. Es decir extraer datos almacenados en arrays u objetos y asignarlos a variables.
+
+//Sin utilizar la destructuración:
+
+const tribu = [10,15, 37];
+// Cada dato del arreglo tribu lo extraigo y se lo asigno a una variable diferente
+let uno = tribu[0], 
+    dos = tribu[1], 
+    tres = tribu[2];//Importante finalizar la declaracion de varias variables ; al final
+console.log(uno, dos, tres);
+
+//Utilizando la destructuración
+
+const tribu2 = [10, 15, 37];
+const [uno1, dos2, tres3]= tribu2; // Cada dato del arreglo se guarda en las variables creadas de manera más organizada. Y en la posicion que corresponde, para uno1(0), dos2(1), tres3(2). 
+console.log(uno1, dos2, tres3);
+
+
+//Lo mismo ocurre cuando se trata de un objeto
+const persona = {
+    nombre: "Michael",
+    apellido:"Owen",
+    edad: 42
+}
+//Ojo si es arrray se utilizan los [corchetes] y si es objeto las {llaves}
+let {nombre, apellido, edad} = persona;
+console.log(nombre, apellido, edad);
+
+
+console.log
+    ("***********************************OBJETOS LITERALES************************************");
+//Clase 19 Objetos Literales. Son nuevas maneras de escritura de atributos, como de metodos que tienen los objetos literales a partir del nuevo estandar ECMAScript v6.
+
+let nombrePerro = "dogo", edadPerro = 7;//Escribimos las variables
+
+const perro ={//Creamos un objeto
+nombrePerro,//Para llamar a las variables NO es necesario escribirlas en modo key:value
+edadPerro,
+raza: "criolla",//Para este caso si ya que es un atributo que se creo dentro del objeto
+
+//Para declarar un metodo no es necesario escribir la palabra reservada function y se eliminan los dos puntos.(Recordar Ya que una propiedad es una asociacion entre key y value, ladrar es la key y el value es la function ( a esto se le llama método, en este caso se esta declarando un método).
+ladrar(){
+ console.log("guauuu guauuu!!!") //Nueva forma de declarar métodos dentro de Objetos
+}
+}
+console.log(perro);//Llamamos el objeto
+perro.ladrar();// Llamamos el método
+
+
+console.log
+    ("*********************PARAMETROS REST Y OPERADOR SPREAD O DE PROPAGACION*****************");
+//Clase 20.
+//----------------------------------Parametros Rest--------------------------------------------
+// Los parámetros Rest son una forma virtual de ir agregando, parametros infinitos ya sea a una función  o dentro de una variable.
+
+// La sintaxis de los parametros REST nos permiten representar un numero indefinido de argumentos como un array
+
+//Los tres puntos(...) indica el uso de un parametro REST que recibe infinidad de datos y los muestra como un array.
+function sumar (a, b, ...c){ // El operador ...c permite pasar un número variable de parámetros adicionales, que se agruparán en un array llamado c. 
+    let resultado = a + b; // La función sumar toma dos parámetros obligatorios (a y b).
+c.forEach(function(n){ // Utilizando el método forEach, se itera sobre cada elemento n en el array c.
+    resultado += n // En cada iteración, se suma el valor de n a la variable resultado.    
+});  
+return resultado; // La función retorna la suma acumulada de a, b y los elementos del array c.
+}
+console.log(sumar(1, 2)); // a+b=3 + c=esta vacio 
+console.log(sumar(1, 2, 3)); // a+b= 3 + La función forEach itera sobre el elemento en c ( que es 3) = 6
+console.log(sumar(1, 2, 3, 4)); // a+b=3 + La función itera sobre el elemento en c ( que es 3+4) = 10
+console.log(sumar(1, 2, 3, 4, 5)); // ect...
+console.log(sumar(1, 2, 3, 4, 5, 6));
+console.log(sumar(1, 2, 3, 4, 5, 6, 7));
+
+// Otros ejemplos
+function suma(...numero) {
+    let resultado = 0;
+    numero.forEach(function(numero) {
+        resultado += numero;
+    });
+    return resultado;
+}
+console.log("La suma es:" + " " + suma(2, 3, 4, 6));
+
+
+function suma(...numeros) {
+    let resultado = 0;
+    for (let i = 0; i < numeros.length; i++) {
+    resultado += numeros[i];
+    }
+    return resultado;
+}
+console.log("La suma es:" + " " + suma(1, 2, 4, 6));
+
+
+//-------------------------------Operador Spread o de Propagación-------------------------------
+// La explicacion no es muy clara, más adelante en el curso se profundizara en ello.
+
+const arreglo = [3,2,5,4,2],
+      arreglo2 = [8,6,8,7,0];
+console.log(arreglo, arreglo2);
+
+const arreglo3 = [...arreglo, ...arreglo2];
+console.log(arreglo3);
+
+
+//----------------------Otra forma (Falcom Master Curso ES6 video 11)---------------------------
+
+//ESTRUCTURA DE UNA FUNCIÓN
+/* function nombre_funcion (Parametros){
+    Instrucciones;
+}
+invocavion_de_funcion(Valores de los parametros) */
+
+
+//---------------------------------------Parametros Rest-----------------------------------------
+
+const mostrarValores = (...valores) => {// 2) Los tres puntos(...) indica el uso de un parametro REST que recibe infinidad de datos y los muestra como un array.
+    console.log(valores);// 3) Se imprimen los datos 
+}
+mostrarValores("Carlos", "23", "correo@correo.com", "mexico",)// 1) Se invoca la función y se agregan la infinidad de datos que se requieran,(recordar que una funcion declarada se puede invocar antes de definirla) 
+
+// Es decir el Parametro REST permite introducir infinidad de valores de parametros (datos), enviarlos desde la invocacion de la funcion a la seccion de parametros y recibirlos en un  ...array
+
+
+//-------------------------------Operador Spread o de Propagación-------------------------------
+//Es lo contrario un Parámetro Rest, sirven para pasar los elementos de un arreglo, como elementos de argumento a una funcion.
+
+const mostrarDatos = (...datos) => {// 3) Los  argumentos se reciben en la funcion. Los tres puntos(...) indica el uso de un Operador Spread 
+console.log(datos);// 4) Y se imprimen.
+}
+
+const arregloDatos = ["Sixto", "34", "correo@correo.com", "Brazil"];// 1) Se crea un array
+mostrarDatos(...arregloDatos); // 2) Se pasan los elementos del array como  argumentos a la funcion usando los tres puntos (...) para el arreglo.
+
+// Es decir con el Operador Spread, se pasan los elementos de un array como argumentos a la funcion, se reciben  y se envian desde la invocacion de la funcion y se reciben en la seccion de parametros como un ...array
+
+
+console.log
+    ("***********************************ARROWS FUNCTION**************************************");
+//Clase 21. Arrows Functions(función flecha) es una nueva forma de definir funciones anonimas expresadas.
+
+//Funcion anonima expresada, Sin uso de Arrow Function.
+const sinArrowFunction = function(){
+    console.log("Lakers");
+    console.log("Spurs");
+}
+sinArrowFunction();
+
+//----------------------------------Con Arrows Function-----------------------------------------
+//Con Arrow Function se omite la palabra reservada function y se añade una flecha(=>)
+const saludar = () => {
+    console.log("hola");
+    console.log("Buenos dias");
+}
+saludar();
+
+// Si solo se tiene una linea de codigo se omiten las llaves, además de igualmente omitir la palabra reservada function y añadir una flecha(=>) 
+const saludar2 = () => console.log("hola buenos dias 2");
+saludar2();
+
+// Tambien si solo se tiene una linea de codigo se puede omitir todo lo anterior y además si se recibe un parametro, se pueden eliminar los parentesis.
+const saludar3 = nome => console.log("hola buenos dias 3 " + nome);
+saludar3('Juan');
+
+
+//-------------------------------------Uso con Return------------------------------------------
+//Cuado usamos RETURN, Se puede simplificar eliminando las palabras reservadas return, function y las llaves.
+
+//Sin Arrow Function
+const multiplicar = function(z,w){
+    return z * w;
+}
+console.log(multiplicar(2,3));
+
+//Con Arrows Function
+//Se elimina la palabra reservada function, se añade la flecha, se eliminan las llaves y la palabra reservada return.
+const multiplicar2 = (a,b) => a * b;
+console.log(multiplicar2(3,2));
+
+//----------------------------Con el Metodo forEach para arreglos-------------------------------
+
+const numeros = [1, 2, 3, 4, 5];//Array
+
+//Sin Arrows function
+numeros.forEach(function(el,index){
+    console.log(`El elemento ${el} esta en la posicion ${index}`);
+})
+
+//Con Arrows function se elimina la palabra reservada function, se agrega la flecha y se eliminan las llaves ya que tenemos una sola linea de codigo.
+numeros.forEach((el,index)=>console.log(`${el} esta en la posicion ${index}`));
+//Ojo on los parentesis
+
+
+//----------------------------Con objeto THIS-------------------------------
+// Las Arrows Function capturan el objeto THIS del contexto en el que se encuentre, VEAMOS:
+
+//Para este ejemplo la function existe dentro del contexto del navegador, entonces this se convierte en el objeto windom, el objeto del DOM que representa la ventan del navegador.
+function serendipia(){
+    console.log(this);
+}
+serendipia();
+
+//Para este caso la function existe dentro del contexto objeto, entonces this hace referencia al objeto, por esta razon imprime las propiedades del objeto, ademas de hacer referencia a que en la propiedad maullar es la key y el value es una funcion funcion.
+const cat = {
+    // Agrego propiedades al objeto
+    raza: "Persa",
+    name: "Felix",
+    edad: 3,
+    maullar(){
+        console.log(this) // RECORDAR es mejor practica escribir el metodo de esta forma.
+    }
+}
+cat.maullar();//Imprimimos el valor del metodo.
+
+
+// -----------------------------------Con Arrows Function------------------------------------
+// Si usamos las Arrows Function, this ya No HARÁ referencia al objeto, sino que la function existirá dentro del contexto del navegador, entonces this se convierte en el objeto windom, el objeto del DOM que representa la ventan del navegador.
+
+//Es decir al usar la Arrow Function con la palabra reservada this, la Arrow function ignora el contexto del objeto y se va la contexto en donde esta ese objeto, que es el window la ventana del navegador.
+
+// NO ES UNA buena practica crear un metodo apartir de una Arrow Function, o lo que es lo mismo no utilizar Arrow function en un objeto.
+const lobo = {
+raca: "siberiano",
+nome: "moon",
+edade: 4,
+aullar:() => {
+    console.log(this)
+}
+}
+lobo.aullar();
+
+//NOTA CONCLUYENTE: Las Arrows Function tienen la capacidad de saltarse el contexto en el que estan y heredar o reconocer el contexto donde se encuentra su objeto padre en el que ha sido declarado (falta averiguar más de esto).
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

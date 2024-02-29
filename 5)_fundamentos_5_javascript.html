@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fundamentos Parte 5 POO Java Script</h1>
+
+<script>
+console.log
+    ("*********************************OBJETO CONSOLE*****************************************");
+
+//Clase 26. Objeto Console 
+
+console.error("Esto es un error");
+console.warn("Esto es un aviso");
+console.info("Esto es un mensaje informativo");
+console.log("Un registro de lo que ha pasado en nuestra aplicacion")
+
+let nombre = "Alejandra "
+    apellido = "Muñoz"
+    edad = 27;
+
+//Se puede imprimir de varias formas
+
+//Verticalmente cada valor
+console.log(nombre);
+console.log(apellido);
+console.log(edad);
+
+//Horizontalmente los valores, o en una misma linea
+console.log(nombre, apellido, edad);
+
+//Agregando comodines que sirven como almohadllas para representar un valor determinado: 
+// %s = Para un string, %d para un digito, etc.
+
+console.log(`Hola mi nombre es %s %s y tengo %d años`, nombre, apellido, edad);
+
+//console.clear() sirve para limpiar la consola
+
+
+
+
+// Cuando se vea el tema referente al DOM, se prfundizara en los sguente temas:
+
+//Con el objeto document se controla la página web y todos los elementos que contiene.
+
+//El objeto window representa la ventana que contiene un documento DOM; la propiedad document apunta al DOM document cargado en esa ventana.
+
+//El método dir() de Console despliega una lista interactiva de las propiedades del objeto JavaScript especificado.
+
+console.log(window);
+console.log(document);
+console.dir(window);
+console.dir(document);
+
+//Como crear grupos o acordeones en la consola
+
+console.group("Cursos de @jonmircha en Youtube");
+ console.log("Curso de JavaScript");
+ console.log("Curso de Node.js");
+ console.log("Curso de PWAs");
+ console.log("Curso de Flexbox");
+ console.log("Curso de Diseño y Programacion Web");
+console.groupEnd();
+
+//console.groupCollapsed: En otros navegadores hay diferencias entre console.groupCollapsed y console.group, pero en la ventana de chrome se visualizan de la misma manera.
+
+
+//Con console.table pintamos una tabla  en la consola del navegador.
+//sort ordena de forma alfabetica.
+console.log(console);
+console.table(Object.entries(console).sort());
+
+//Colocamos en una tabla un arreglo
+const numeros = [1, 2, 3, 4, 5],
+ vocales = ["a", "e", "i", "o", "u"];
+
+console.table(numeros);
+console.table(vocales);
+
+//Colocamos en una tabla un objeto
+
+const perro ={
+
+     nombre: "Boni",
+     raza: "Boxer",
+     color:"cafe"
+
+}
+
+console.table(perro);
+
+console.clear();
+
+//console.time para saber cuanto tarda en ejecutar el codigo
+
+console.time("cuanto tiempo tarda mi codigo");
+const arreglo = Array(1000);
+
+for(let i =0; i<arreglo.length; i++){
+  arreglo[i] = i;
+}
+
+console.timeEnd("cuanto tiempo tarda mi codigo");
+
+console.log(arreglo);
+
+//Para conocer cuantas veces se ha ejecutado cierto fragmento de codigo
+
+for(let i =0; i<=100; i++){
+console.count("codigo for")
+  console.log(i);
+}
+
+
+//El objeto console tiene un metodo assert, el cual es como una mini libreria para hacer pruebas.
+
+let x=3, 
+ y=2,
+
+pruebaXY = "Se espera que X siempre sea menor que Y"
+
+console.assert(x<y,{x,y,pruebaXY});
+
+
+
+console.log
+    ("*********************************OBJETO DATE********************************************");
+
+console.log(Date());
+
+let fecha = new Date();
+console.log(fecha);
+
+//Día del mes
+console.log(fecha.getDate());
+
+//Día de la semana D-L-M-M-J-V-S-D -> 0-1-2-3-4-5-6
+// console.log(fecha.getDay());
+
+//Mes Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic -> 0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+console.log(fecha.getMonth());
+
+//Año
+console.log(fecha.getFullYear());
+
+//Horas
+console.log(fecha.getHours());
+
+//Minutos
+console.log(fecha.getMinutes());
+
+//Milisegundos
+console.log(fecha.getMilliseconds());
+
+//Solo imprime la fecha
+console.log(fecha.toDateString());
+
+//Solo imprime la fecha y hora
+console.log(fecha.toLocaleString());
+
+//Solo imprime la fecha 
+console.log(fecha.toLocaleDateString());
+
+//Solo imprime la hora
+console.log(fecha.toLocaleTimeString());
+
+//Describe la diferencia horaria con Londres
+console.log(fecha.getTimezoneOffset());
+
+//Describe la fecha en relacion a Londres
+console.log(fecha.getUTCDate());
+
+//Describe la hora en relacion a londres 
+console.log(fecha.getUTCHours());
+
+//Describe cuantos Segundos ha pasado desde el primero de Enero de 1970
+console.log(Date.now());
+
+
+
+let cumpleJon = new Date(1984, 5, 23);
+console.log(cumpleJon);
+
+
+console.log
+    ("*********************************OBJETO MATH****************************************");
+
+
+//Clase 28 Objeto Math. Este objeto es estatico, para utilizarlo hay que invocar el prototipo.
+
+console.log(Math.PI);
+console.log(Math.abs(-7.8));//abs devuelve el valor absoluto
+console.log(Math.ceil(5.1));//Redondea un numero decimal al entero superior
+console.log(Math.floor(5.0));//Redondea un numero decimal al entero inferior o es como si le qitaramos los decimales y nos quedaramos con el entero.
+console.log(Math.round(5.49));//Redondea de la forma ya conocida en matemáticas.
+console.log(Math.sqrt(81));//Sacar raiz cuadrada
+console.log(Math.pow(2,3));//Para desarrollar una potencia, donde el primer numero es la base y el segundo el exponente.
+console.log(Math.sign(-0));//Un número representando el signo del argumento dado. Si el argumento es un número positivo, negativo, cero positivo, o cero negativo, la función retornará 1, -1, 0 or -0 respectivamente. De lo contrario, retorna NaN.
+
+console.log(Math.random());// Da un valor aleatorio entre 0 y 1.
+
+console.log(Math.random()*100);//Da un valor aleatorio entre 0 y 100.
+
+
+console.log
+    ("****************************OPERADOR CORTOCIRCUITO*************************************");
+
+//Clase 29 Operador de Cortocircuito. 
+
+//Esta es una función que recibe parametros.
+function saludacoe (nome){
+
+console.log(`Hola ${nome}`);
+
+}
+saludacoe("Jon");
+
+//----------------------------------------------------------------------------------------------
+
+// Tambien se pueden declarar los valores de los parametros directamente en la función.
+function regards(name= "Beto"){
+
+console.log(`Hello ${name}`);
+
+}
+regards();
+
+//----------------------------------------------------------------------------------------------
+
+// Antes que se tuvieran las opciones anteriores, la asignacion de parametros por defecto se hacia de otra forma.
+
+function saludos(nombre){
+ nombre= nombre || "Daniel" //Ha esto se le conoce como OPERADOR CORTOCIRCUITO.
+ console.log(`Hola ${nombre}`)
+}
+saludos("Camilo"); // Para este caso como estamos introduciendo un parametro para nombre, es decir la variable nombre esta definida imprimira Camilo.
+
+saludos();// Para este caso como no introducimos un parametro, elegira la segunda opcion  e imprimira Daniel.
+
+
+/*Cortocircuito OR - Cuando el valor de la izquierda en la expresión siempre pueda validar a TRUE, es decir cuando sea verdadero; es el valor que se cargara por defecto, sino se cargara el de la izquierda*/
+
+console.log("cadena" || "Valor de la derecha");
+console.log(19|| "Valor de la derecha");
+console.log(-19|| "Valor de la derecha");
+console.log(true || "Valor de la derecha");
+console.log( [] || "Valor de la derecha");
+console.log({} || "Valor de la derecha");
+console.log(false || "Valor de la derecha");
+console.log(0 || "Valor de la derecha");
+console.log(null || "Valor de la derecha");
+console.log(undefined || "Valor de la derecha");
+console.log("" || "Valor de la derecha");
+
+/*Cortocircuito AND - Cuando el valor de la izquierda en la expresión siempre pueda validar a FALSE,es decir cuando sea falso, es el valor que se cargara por defecto, sino se cargara el de la derecha*/
+
+console.log(false && "Valor de la derecha");
+console.log(0 && "Valor de la derecha");
+console.log(null && "Valor de la derecha");
+console.log(undefined && "Valor de la derecha");
+console.log("" && "Valor de la derecha");
+console.log("cadena" && "Valor de la derecha");
+console.log(19 && "Valor de la derecha");
+console.log(-19 && "Valor de la derecha");
+console.log(true && "Valor de la derecha");
+console.log( [] && "Valor de la derecha");
+console.log({} && "Valor de la derecha");
+
+console.log
+    ("*******************************ALERT, CONFIRM Y PROMPT*********************************");
+
+//Clase 30. Alert, Confirm y Prompt. Estos tres metodos son muy importantes para interactuar con el usuario.
+
+/*
+alert("Esto es una alerta")
+confirm("Esto es una confirmación")
+prompt("Ingresa un valor")*/
+
+
+console.log
+    ("*******************************EXPRESIONES REGULARES*********************************");
+
+//Clase 31. Expresiones regulares. Es una secuencia de caracteres que forman un patrón de busqueda y que principalmente es utilizado en la busqueda  de cadenas de texto.
+
+let cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nisi asperiores voluptatibus! Ab7 ea assumenda illum, nisi qui placeat quo incidunt at blanditiis doloribus natus facere cupiditate8 enim? Quam nesciunt reiciendis excepturi quis ut alias deleniti porro. Cumque quibusdam molestiaelorem suscipit velit sed molestias perferendis illum, non enim voluptate! Assumenda 9."
+
+let expReg = new RegExp("lorem", "ig");//Forma 1 de crear una Expresion Regular con un patron y una bandera. En este caso la bandera "i" ignora mayusculas y minusculas. la bandera "g" hace que se busque el patron o palabra lorem en toda la cadena/parrafo.
+
+let expReg2 = /\d/ig; //Forma 2 de crear una Expresion Regular
+
+console.log(expReg.test(cadena));//TEST comprueba que la palabra esta incluida en la cadena, arrojando un boolean.
+
+console.log(expReg.exec(cadena));// EXEC devuelve un arreglo donde indica en que posicion encontro el primer parametro, parte de la cadena donde se encontro(input) y el numero de letras y/o espacios en que se encuntra el siguiente parametro(index).
+
+console.log(expReg2.test(cadena));
+console.log(expReg2.exec(cadena));
+
+
+console.log
+    ("*************************FUNCIONES ANONIMAS AUTOEJECUTABLES****************************");
+
+//Clase 32. Funciones Anonimas Autoejecutables(FAA), es una funcion donde se engloba todo el codigo que se quiere ejecutar.
+
+// 1) Version clasica de escribir una FAA
+(function() {
+
+console.log("Mi primer IIFE")
+
+})(); //En las FAA es necesario el punto y coma al final(;) 
+
+
+//FAA clasica que recibe parametros
+(function(d, w, c) {
+
+console.log("Mi segunda IIFE")
+console.log(d)
+console.log(w)
+c.log("Este es un console.log");
+
+})(document, window, console);
+
+// 2) Version Crockford (JavaScript The Good Parts) de escribir una FAA
+((function() {
+
+console.log("Version Crockford");
+
+})());
+
+
+// 3) Version Unaria de escribir una FAA
++function() {
+
+console.log("Version Unaria");
+
+}();
+
+// 4) Version Facebook de escribir una FAA
+!function() {
+
+console.log("Version Facebook");
+
+}();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

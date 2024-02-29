@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fundamentos Parte 1 Java Script</h1>
+ <ul>
+  <!--Lista desordenada-->
+    <li>Primavera</li>
+    <li>Verano</li>
+    <li>Otoño</li>
+    <li>Invierno</li>
+ </ul> 
+
+
+
+<script>
+ //EN SCRIPT SE ESCRIBE EL CODIGO JAVASCRIPT 
+
+console.log
+    ("**********************************ESCRITURA DE CODIGO***********************************");
+ /* Clase 2, Características y Gramática*/
+
+    // En JavaScript, un identificador es un nombre dado a una variable, función, propiedad o etiqueta que se utiliza para identificar y referenciar ese elemento en el código. Los identificadores son sensibles a mayúsculas y minúsculas, lo que significa que "miVariable" y "mivariable" se considerarían diferentes identificadores.
+
+    // No se pueden utilizar palabras reservadas de JavaScript como identificadores.
+    
+    // Los Identificadores deben comenzar con: Una letra, un signo dolar o un guión bajo:
+    // a = 7  
+    // $a = 7 
+    // _a = 7
+    
+
+    // En JavaScript, hay varios estilos o convenciones para escribir identificadores (nombres de variables, funciones, etc.):
+
+    // 1) Para los nombres de ARCHIVOS snake_case se separa por guiones bajos:
+
+        // mi_archivo_javascript.js;
+
+    // 2) Para los nombres de CONSTANTES UPPER_CASE se usan todo en mayusculas y si tiene más de dos    palabras se separa con guión bajo: 
+
+        // const UNA_CONSTANTE = "Soy una constante",
+        // PI = 3.141592653589793;
+    
+    // 3) Para los nombres de CLASES UpperCamelCase se usa mayuscula en la primera letra siempre: 
+        //  class SerHumano {
+        //      constructor(nombre, genero) {
+        //      this.nombre = nombre;
+        //      this.genero = genero;
+        //      }
+
+        //      miNombreEs() {
+        //      return `Mi nombre es ${this.nombre}`;
+        //      }
+        //  }
+    
+    // 4) Para los nombres de  OBJETOS, ARRAYS, PRIMITIVOS, FUNCIONES, INSTANCIAS lowerCamelCase se usa minuscula en la primera palabra y mayuscula en las palabras posteriores:
+
+        //   const unObjeto = {
+        //      nombre: "Jonathan",
+        //      email: "jonmircha@gmail.com",
+        //   };
+    
+        // var miArray = ["manzana", "banana", "cereza"];
+
+        // let unaCadena = "Hola Mundo",
+        //     unNumero = 19,
+        //     unBoolean = true;
+
+        // function holaMundo(nombre) {
+        //     alert(`Hola mundo ${nombre}`);
+        // }
+        // holaMundo("Jonathan");
+
+        // const ajax = new XMLHttpRequest(),
+        //     jon = new SerHumano("Jonathan", "Hombre");
+
+console.log
+    ("********************************ORDENAMIENTO DE CODIGO**********************************");
+    // 1) IMPORTACIÓN DE MÓDULOS.
+    // 2) DECLARACIÓN DE VARIABLES.
+    // 3) DECLARACIÓN DE FUNCIONES.
+    // 4) EJECUCIÓN DE CÓDIGO.
+
+
+console.log
+    ("*************************************VARIABLES******************************************");
+/* Clase 3 Usar la palabra reservada VAR para crear variables es una mala practica ya que esta genera variables globales, se debe usar la palabra reservada LET ya que esta genera variables de bloque. Explicación en el video https://www.youtube.com/watch?v=tmRa0_EvMoc&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=4 */
+
+console.log
+    ("****************************************VAR*********************************************"); 
+    var musica = "Rock";
+    console.log("Variable Música antes del bloque", musica);
+    {
+        var musica = "Pop";
+        console.log("Variable Música dentro del bloque", musica);
+    }
+    console.log("Variable Música despues del bloque", musica);
+
+console.log
+    ("****************************************LET*********************************************");
+
+    let musica2 = "Rock";
+    console.log("Variable Música antes del bloque", musica2);
+    {
+        let musica2 = "Pop";
+        console.log("Variable Música dentro del bloque", musica2);
+    }
+    console.log("Variable Música despues del bloque", musica2);
+
+
+console.log
+    ("***************************************CONSTANTES************************************");  
+/* Clase 4 declarar constantes(const), const se usa para crear datos que no puedan
+cambiar su valor durante la ejecución del programa, para datos PRIMITIVOS(string, number,
+boolean, etc). Para datos COMPUESTOS(objectos, arrays, function, class, etc) si se puede  */
+
+    const PI = 3.1416;
+    console.log(PI);
+
+    const a = "kenai"
+    console.log(a);
+
+
+console.log
+    ("******************************TIPOS DE DATOS: Primitivos********************************");
+/* Clase 5 Strings o Cadenas de texto, pueden declararse con comillas dobles "", comillas simples '' ó usando new  */
+
+console.log
+    ("****************************************STRINGS*****************************************");
+    let nombre = "Sixto"; //Es la forma más usada de declarar un String
+    let apellido = 'Orobio'; // Es la segunda forma más usada
+    let saludo = new String("Hola mundo");// Usando el Construtor, es una forma formal pero poco usada
+    let lorem = "Lorem Ipsum is simply dummy text of the printing, and typesetting industry. Lorem Ipsum, has been the industry's, standard dummy text ever since the 1500s, when an"
+
+    console.log(nombre, apellido, saludo, lorem);/* Se pueden imprimir varias variables, con un solo console.log separando con una coma,*/ 
+    
+   console.log( //SE IMPRIME TODO DENTRO DE UN CONSOLE.LOG
+   nombre.length,  // length para contar el numero de letras de una cadena
+   apellido.length, 
+   saludo.length,
+   nombre.toLocaleUpperCase(), // Convierte una cadena a Mayúsculas
+   apellido.toLowerCase(), // Convierte una cadena a Minúsculas
+   lorem.includes("simply00"), // Includes (ɪnˈkluːdss), me permite saber si una palabra esta incluida en una cadena de texto.
+   lorem.trim(),// El método trim( ) elimina los espacios en blanco en ambos extremos del string. Los espacios en blanco en este contexto, son todos los caracteres sin contenido (espacio, tabulación, etc.)
+   lorem.split(" "), //Convierte una Cadena a Array, en este caso ya que el parrafo esta separado por espacios, convierte cada palabra en un arreglo.
+   lorem.split(","),//Convierte cada frase separada por coma en un arreglo
+   );                                         
+
+
+console.log
+   ("*********************************TEMPLATE STRINGS***************************************");
+/* Clase 6 Template Strings  */
+    let nombre2 = "Sixto";
+    let apellido2 = "Orobio";
+
+    let Hola = "Hola mi nombre es"  
+    
+    //Se puede CONCATENAR/UNIR como en Java
+    console.log("Hola mundo mi nombre es  " + nombre2 + " " + apellido2);
+
+    // O unir usando INTERPOLACIÓN de variables con TEMPLATE STRINGS(``)
+    let hola2 = `Hola mi nombre es ${nombre2} ${apellido2}`;
+    console.log(hola2);
+
+    /* Las Template String sirven tambien para interactuar con el codigo HTML dinamicamente, para este caso traemos una lista desordenada de HTML con los nombres de las estaciones y la imprimimos*/
+    let ul = `
+    <ul>
+    <li>Primavera</li>
+    <li>Verano</li>
+    <li>Otoño</li>
+    <li>Invierno</li>
+    </ul>
+    `
+    console.log(ul);
+
+
+console.log
+    ("***************************************NUMBERS******************************************");
+/* Clase 7 Numbers, en javaScript los diferentes tipos de datos Numericos (float, int, double, etc)  se representan simplemente como Numbers */
+ 
+  let ax = 2;
+  let by = new Number(86);
+  let cz = 7.198990;
+  let z = "5.6"
+  console.log(ax, by);
+  console.log(cz.toFixed(3));//toFixed() sirve para redondear numeros, mostrando la cantidad de decimales que uno desee.
+  
+  console.log(parseInt(z), z); //El Metodo PARSE en JAVASCRIPT al igual que en JAVA convierte determinado dato a un dato Int, en este caso de String a Int. Además solo devuelve la parte entera del dato; igual pasa con parsefloat.
+
+  console.log(cz + parseInt(z));
+  
+  console.log(typeof z, typeof ax, typeof by); // Me dice el tipo de dato de la variable o constante
+
+
+console.log
+    ("**************************************BOOLEANS******************************************");
+/* Clase 8 Booleans, al igual que se utiliza en otros lenguajes, se basa en declarar elementos con valores que son falsos o verdaderos   */
+  
+    let verdadero = true;
+    let falso = false;
+
+    console.log(verdadero, falso)
+    console.log(typeof verdadero, typeof falso);
+
+   //Valores que tienden a Truthy(Verdadero)
+   //https://developer.mozilla.org/es/docs/Glossary/Truthy
+
+   // Valores que tienden a Falso(Falsy)
+   // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+
+console.log
+    ("********************************UNDEFINED, NULL Y NaN***********************************");
+/* Clase 9 Undefined (ʌn.dɪfaɪnd), Null y NaN son casos particulares de JavaScript
+
+- Undefined y Null = Representan un valor ausente, es decir una variable que no tiene valor, que no ha sido inicializada. Se diferencian en que, Undefined es un valor asignado por JavaScript y Null es un valor asignado intensionalmente por el programador. 
+
+ - NaN (Not a Number) es un valor que se usa, cuando se requiere hacer operaciones aritmeticas entre diferentes tipos de datos que no son numericos */    
+
+let indefinida; // Se crea la variable sin asignarle ningun valor, y el lenguaje la tomara como Undefined
+console.log(indefinida);
+
+let nulo = null; // Se crea la variable asignandole el valor Null, el lenguaje la tomara como nulo
+console.log(nulo);
+
+let noEsUnNumero = "hola" *3.7;
+console.log(noEsUnNumero);  
+
+
+console.log
+    ("*******************************TIPOS DE DATOS: Compuestos******************************");
+
+console.log
+    ("**************************************FUNCIONES*****************************************");
+ /* Clase 10 Funciones(){}, es un bloque de codigo que tiene su propio contenido, solo se define una vez y se puede utilizar cuantas veces se requiera. 
+
+ - Para invocar una función siempre se utilizan los parentesis.
+ 
+ - Opcionalmente, una función puede aceptar parámetros y devolver un valor.
+ 
+ - Las funciones en JavaScript son un tipo especial de objeto.
+ 
+ Ver definicion en MDN */
+
+// EXISTEN DOS TIPOS DE FUNCIONES DECLARADAS Y EXPRESADAS
+
+//La diferencia fundamental de las funciones expresadas con las funciones declaradas, es que la funcion expresada NO SE PUEDE INVOCAR ANTES DE SER DECLARADA.
+
+
+//--------------------------------FUNCIONES DECLARADAS------------------------------------------
+// -----------------------------Declaración de Funciones----------------------------------------
+
+function funcionDeclarada(){ //Usamos la palabra reservada function
+//bloque de instrucciones que se realizan al unísono    
+    console.log("Uno");
+    console.log("Dos");
+    console.log("Tres");// Es el valor de salida de la función, pero no finaliza completamente la función.
+}
+// Invocacion de función
+funcionDeclarada();//De esta forma se invoca una funcion declarada, siempre debe tener parentesis, ya que esto indica que la funcion se va a ejecutar
+
+
+//----------------------Función que devuelve valor (Uso de Return(rɪtɝːn))----------------------
+function funcion2(){
+    console.log("Cuatro");
+    console.log("Cinco");
+    console.log("Seis");
+    return "La función ha retornado una Cadena de texto";// Para devolver valores, usamos la palabra reservada return. Return imprime todo lo que esta antes de él en el cuerpo de la función. Es decir finaliza completamente la función
+    console.log("Siete");//No imprime el String "Siete"
+}
+console.log(funcion2()); //Se puede invocar de esta forma e imprimirla con un console.log.
+
+let valorDeFuncion = funcion2(); // O asignar la invocacion de la funcion  a  una variable, 
+    console.log(valorDeFuncion);     // Para poder imprimirla con un console.log. 
+
+//--------------------------Función que recibe parametros---------------------------------------
+function saludar(name, years_old){//parametros
+    console.log(`Hola mi nombre es ${name} y tengo ${years_old} años`);
+}
+saludar("Alberto",19); //argumentos
+
+// Cuando se invoca la función se ingresan los valores de los parametros(name, years_old) que se declararon en la funcion como argumentos("Alberto", 19).
+
+// Tambien se pueden declarar los valores de los parametros directamente en la función, como podemos ver
+function hello(nome = "Sixto", edade = 19){
+    console.log(`Hola mi nombre es ${nome} y tengo ${edade} años`);
+}
+hello();
+
+//--------------------Invocacion de función antes de ser declarada------------------------------
+// La invocacion de funciones se pueden realizar antes de ser declaradas
+
+funcione();//Se  invoca la función antes de la declaración de esta
+
+function funcione(){
+    console.log("Esto es una función declarada, puede invocarse en cualquier parte de nuestro código, incluso antes de que la función sea declarada");
+}
+
+//----------------------------------FUNCIONES EXPRESADAS/ANÓNIMA---------------------------------------
+// ----------------------------------Función Expresada/Anónima-----------------------------------------
+//La diferencia fundamental de las funciones expresadas con las funciones declaradas, es que la funcion expresada NO SE PUEDE INVOCAR ANTES DE SER DECLARADA.
+
+// Es una buena practica trabajar con funciones expresadas.
+
+//Debido a que las funciones expresadas siguen el patron de que no se le coloca el nombre despues de la palabra reservada function, se les conoce como FUNCIÓN ANÓNIMA.
+
+// Funcion expresada/Función anonima asignada a una constante
+const funcionExpresada = function(){
+    console.log("Esto es una función expresada, es decir, una funcion que se le ha asignado como valor a una constante")
+}
+funcionExpresada();// Se invoca
+
+
+const funcionReturn = function(nom){
+    return `Esto es una función expresada con ${nom}`
+}
+console.log(funcionReturn("return"));
+
+// Funcion expresada/Funcion anonima asignada a una variable, se puede usar con LET O VAR. Además recibe parametros.
+
+let funcione2 = function(nombrez){
+    console.log(`Su nombre es ${nombrez}`)
+}
+funcione2("diego");
+
+
+console.log
+    ("****************************************ARRAYS*****************************************");
+
+/* Clase 11 Array. Un Arreglo es una coleccion de elementos de diferente tipo (Boolen, String, Number, otro arreglo, etc) 
+
+- Se pueden declarar con las palabras reservadas const o Let, eso depende de cada programador*
+
+- Un arreglo inicia con el primer elemento desde la posición 0
+
+- Su estructura es la siguiente Array = []  */
+
+const r = [];
+const t = [1, true, "hola", ["A", "B", "C",[1, 2, 3, 4]]];
+console.log(r,t);
+console.log(t.length); //Para saber la longitud del arreglo
+
+console.log(t[2]);//Asi se accede a la posicion de un arreglo, en este caso accedemos a la posición 2 donde se encuentra el String "hola"
+
+console.log(t[3][0]);// Asi se accede a la posicion de un arreglo que esta dentro de otro arreglo, para este caso accedemos a la posicion 0 del arreglo que esta dentro del arreglo t
+
+console.log(t[3][3][3]); //Y asi sucesivamente...
+
+const g = Array.of("X", "Y", "Z", 9, 8, 7); // Forma actual de declarar arreglos con Array.of
+console.log(g);
+
+const f = Array(20).fill("Saudade")// Array(n° de repeticiones).fill(Elemento), sirve para crear arreglos y asignar a todas sus posiciones el mismo valor, en este caso el string Saudade
+console.log(f);
+
+const idiomas = ["English", "Germany", "French"];
+
+idiomas.push("Spanish");// Push sirve para agregar elementos al final del arreglo, ojo se utilizan parentesis para agregar o eliminar
+console.log(idiomas);
+
+idiomas.pop();// Pop sirve para eliminar elementos al final del arreglo
+console.log(idiomas);
+
+
+//----------------------------------Metodo forEach---------------------------------------------
+//Este metodo recibe una funcion anonima (sin nombre) e imprime un valor por cada elemento del array equipos, ademas del indice o posicion de cada elemento dentro del arreglo.
+
+const equipos = ["Barcelona", "Madrid", "Manchester"];
+
+equipos.forEach(function(el, index){ //"el" hace referencia a los elementos del array e "index" a su posicion en el arreglo, forEach recorre el arreglo arrojando el nombre del elemento y su posicion.
+
+//Lo imprimimos en forma de lista numerada como en HTML
+console.log(`<li id= "${index}"> ${el} </li>`);// Se imprime con Template String la posicion y el nombre del elemento.
+
+});//Ojo con los parentesis
+
+//Lo imprimimos en forma de lista numerada normal
+equipos.forEach(function(team, index){
+    console.log(`${index} ${team}`);
+})
+
+//Lo imprimimos en forma de lista numerada
+
+console.log
+    ("****************************************OBJETOS****************************************");
+/* Clase 12 Objetos, un objeto es un conjunto conformado por una key y un value 
+
+- Los objetos pueden contener otros objetos, funciones y  variables
+- Se usan dos puntos (:) para declarar elementos dentro del objeto y al declarar no se utilizan palabras reservadas.
+
+// Dentro de un objeto a las variables se les van a llamar atributos/propiedades y a las funciones se les llaman métodos.
+
+- Estructura Object = {} */
+
+const sixto = { // Se crea el objeto principal
+    nombre33: "sixto", // key = nombre33 y value = "sixto"
+    apellidos33: "orobio", 
+    edad33: 34, 
+    pasatiempos33: ["correr","hacer ejercicio", "dar clases"], // Array
+    soltero33: true,
+    contacto33:{ // Objeto dentro de otro objeto 
+        email: "sixtorobio@unicauca.edu.co",
+        twitter: "@orobiosixto",
+        movil: "31286754",
+    }, //importante colocar coma al terminar de declarar objetos y funciones
+
+welcome : function(){ //Se asigna a la llave welcome, una function. Ya que una propiedad es una asociacion entre key y value, welcome es la key y el value es la function ( a esto se le llama método, en este caso se esta declarando un método).
+    console.log("hola")
+},
+
+decirMiNombre: function (){
+    console.log(`Hola me llamo ${this.nombre33} ${this.apellidos33} y tengo ${this.edad33} años y me puedes seguir como ${this.contacto33.twitter} en twitter`)
+}, //this hace referencia a elementos del mismo objeto.
+
+}
+
+console.log(sixto);//imprimimos el objeto completo.
+
+console.log(sixto.contacto33);// Con el punto podemos acceder e imprimir la key y value elegida en el objeto.
+
+console.log(sixto.contacto33.twitter);
+
+console.log(sixto.pasatiempos33[2]);//Se accede aun elemento, en este caso el array y se imprime una posicion especifica.
+
+sixto.welcome(); // De esta forma se imprimen las funciones contenidas en un objeto, a las cuales se les conoce como métodos.
+
+sixto.decirMiNombre();
+
+console.log(Object.keys(sixto));//De esta forma se imprimen todas las keys del objeto
+console.log(Object.values(sixto));//De esta forma se imprimen todos los values del objeto
+
+console.log(sixto.hasOwnProperty("nombre")); //Arroja un boolean indicando si la propiedad especificada existe o no existe en el arreglo
+
+</script>
+</body>
+</html>

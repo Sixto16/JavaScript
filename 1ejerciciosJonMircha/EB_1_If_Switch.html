@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Ejercicios 2 = ESTRUCTURAS CONDICIONALES </h1>
+    
+<script>
+
+
+console.log
+    ("*****************************ESTRUCTURAS CONDICIONALES*********************************");
+
+// Estructuras condicionales compuestas, anidadas y operadores logicos
+
+/*Se ingresan tres notas de un alumno, si el promedio es mayor o igual a siete mostrar el mensaje 'Promocionado'. Tener en cuenta que para obtener el promedio debemos operar suma=nota1+nota2+nota3; y luego hacer promedio=suma/3;
+Cuando cargamos una nota y queremos convertir inmediatamente el valor ingresado a entero podemos hacer:
+nota1=prompt('Ingrese primer nota:','');
+nota1=parseInt(nota1);*/ 
+
+/*
+
+let nota1 = parseInt(prompt("Ingrese la primera nota"));//el resultado de la función prompt() es un string y en javascript el signo + se usa para sumar(en el caso de numeros) y también se usa para concatenar(en el caso de strings). 
+let nota2 = parseInt(prompt("Ingrese la segunda nota"));
+let nota3 = parseInt(prompt("Ingrese la tercera nota"));
+
+let suma = (nota1+nota2+nota3);
+
+let promedio =suma/3;
+
+if (promedio >= 7){
+
+    console.log(`El estudiante hacido promocionado con nota: ${parseInt(promedio)}`);
+}
+
+else {
+ 
+    console.log(`El estudiante hacido reprobado con nota: ${parseInt(promedio)}`);
+    
+}  */
+
+
+
+//---------------------------------------------------------------------------------------------
+
+
+
+/*Solicitar que se ingrese dos veces una clave. Mostrar un mensaje si son iguales (tener en cuenta que para ver si dos variables tienen el mismo valor almacenado debemos utilizar el operador ===)*/
+
+/*
+
+let clave_1 = prompt ("Ingrese por favor la clave");
+let clave_2 = prompt ("Ingrese por favor la clave de nuevo");
+
+if(clave_1 === clave_2){
+
+ console.log("Las claves son iguales");
+
+}
+
+else {
+
+console.log("Las claves no son iguales");
+    
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Realizar un programa que lea por teclado dos números, si el primero es mayor al segundo informar su suma y diferencia, en caso contrario informar el producto y la división del primero respecto al segundo.*/
+
+/*
+let numero_1 = parseInt(prompt("Ingrese el primer numero"));
+
+let numero_2 = parseInt(prompt("Ingrese el segundo numero"));
+
+ if (numero_1 > numero_2){
+
+    console.log (`La suma de los numeros es: ${(numero_1+numero_2)} 
+    y su diferencia es: ${numero_1-numero_2}`); //forma 1
+
+    console.log ("La suma de los numeros es: " + (numero_1+numero_2) + 
+    " y su diferencia es: " + (numero_1-numero_2)); //forma 2
+
+ }
+
+ else{
+
+    console.log (`El producto de los numeros es: ${(numero_1*numero_2)} 
+    y su division es: ${numero_1/numero_2.toFixed(3)}`); 
+
+ }*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Se ingresa por teclado un número, mostrar un mensaje indicando si el número tiene uno, dos, tres o más dígitos. Y di el numero es negativo */
+
+
+/*
+let numero = parseFloat(prompt("Ingrese un numero"));//Float Para que acepte numeros decimales
+
+if (numero > 0 && numero < 10){
+
+    console.log("El numero es de 1 cifra");
+}
+
+else if (numero > 9 && numero < 99){
+
+    console.log ("El numero es de 2 cifras");
+}
+
+else if(numero > 99){
+
+    console.log(" El numero es de tres cifras o más");
+}
+
+else{
+  
+    console.log("El numero es negativo");
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Se cargan por teclado tres números distintos. Mostrar por pantalla el mayor de ellos.*/
+
+/*
+let numero1 = parseFloat(prompt("Ingrese el primer numero"));
+let numero2 = parseFloat(prompt("Ingrese el segundo numero"));
+let numero3 = parseFloat(prompt("Ingrese el tercer numero"));
+
+if (numero1 >= numero2 && numero1 >= numero3){
+
+    console.log(`El numero mayor es: ${numero1}`);
+}
+
+else if (numero2 >= numero1 && numero2 >= numero3){
+
+console.log(`El numero mayor es: ${numero2}`);
+}
+
+else{
+
+    console.log(`El numero mayor es: ${numero3}`); 
+    
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+/*Se ingresa por teclado un valor entero, mostrar una leyenda que indique si el número es positivo, cero o negativo.*/
+
+/*
+
+let numero = parseInt(prompt("Ingrese un numero"));
+
+if(numero > 0){
+
+    console.log("El numero es positivo");
+}
+
+else if (numero < 0){
+
+    console.log("El numero es negativo");0
+
+}
+
+else{
+
+    console.log("El numero es cero");
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+/*De un postulante a un empleo, que realizó un test de capacitación, se obtuvo la siguiente información: nombre del postulante, cantidad total de preguntas que se le realizaron y cantidad de preguntas que contestó correctamente. Se pide confeccionar un programa que lea los datos del postulante e informe el nivel del mismo según el porcentaje de respuestas correctas que ha obtenido, y sabiendo que:
+
+Nivel superior: Porcentaje>=90%.
+Nivel medio: Porcentaje>=75% y <90%.
+Nivel regular: Porcentaje>=50% y <75%.
+Fuera de nivel: Porcentaje<50%.   */
+
+
+/*
+let nombre = prompt("Ingrese su nombre");
+let numero_de_preguntas_realizadas = parseInt(prompt("Ingrese el numero de preguntas realizadas"));
+let numero_de_preguntas_correctas = parseInt(prompt("Ingrese el numero de preguntas correcta"));
+
+let porcentaje = ((numero_de_preguntas_correctas*100)/numero_de_preguntas_realizadas);
+
+if (porcentaje >= 90){
+
+    console.log(`Su nombre es: ${nombre} y su nivel es SUPERIOR`)
+}
+
+else if (porcentaje >= 75 && porcentaje < 90){
+
+   console.log(`Su nombre es: ${nombre} y su nivel es MEDIO`)
+}
+
+else if (porcentaje >= 50 && porcentaje < 75){
+
+console.log(`Su nombre es: ${nombre} y su nivel es REGULAR`)
+}
+
+else if (porcentaje > 0 && porcentaje < 50){
+
+console.log(`Su nombre es: ${nombre} y usted esta FUERA DE NIVEL`)
+}
+
+else {
+
+    console.log("No se aceptan numeros negativos")
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Realizar un programa que pida cargar una fecha cualquiera, luego verificar si dicha fecha corresponde a Navidad (se debe cargar por separado el dia, el mes y el año)*/
+
+/*
+
+let año = parseInt(prompt("Escriba el año"));
+let mes = prompt("Escriba el nombre del mes");
+let dia = parseInt(prompt("Escriba el dia"));
+
+// let mesNavidad = "diciembre";
+// let diaNavidad = 25; 
+
+if(mes.toLowerCase()==="diciembre" && dia===25){
+
+    console.log(`Hoy es NAVIDAD fecha:  ${dia} de ${mes} de  ${año}`);
+}
+
+else{
+    console.log(`Hoy no es NAVIDAD fecha: ${dia} de ${mes} de  ${año}`);
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Se ingresan tres valores por teclado, si todos son iguales se imprime la suma del primero con el segundo y a este resultado se lo multiplica por el tercero (tener en cuenta que puede haber tres condiciones simples)*/
+
+
+/*
+let numeroUno = parseInt(prompt("Ingrese el primer numero"));5
+let numeroDos = parseInt(prompt("Ingrese el segundo numero"));
+let numeroTres = parseInt(prompt("Ingrese el tercer numero"));
+
+let operacion = ((numeroUno+numeroDos)*numeroTres);
+
+if(numeroUno === numeroDos && numeroUno === numeroTres && numeroDos===numeroTres){
+
+  console.log(`El resultado es: ${operacion}`);
+
+}
+
+else {
+    console.log("Los numeros no son iguales"); 
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Se ingresan por teclado tres numeros, si todos los valores ingresados son menores a 10, imprimir en la pagina la leyenda ' Todos los numeros son menores a diez'.*/
+
+/*
+let numeroUno = parseInt(prompt("Ingrese el primer numero"));
+let numeroDos = parseInt(prompt("Ingrese el segundo numero"));
+let numeroTres = parseInt(prompt("Ingrese el tercer numero"));
+
+
+if(numeroUno<10 && numeroDos<10 && numeroTres<10){
+
+  console.log("Todos los numeros son menores a 10");
+
+}
+
+else {
+    console.log("Todos los numeros NO son menores a 10"); 
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+
+/*Escribir un programa que pida ingresar la coordenada de un punto en el plano, es decir dos valores enteros o decimales x e y.
+Posteriormente imprimir en pantalla en que cuadrante se ubica dicho punto. (1) Cuadrante si x > 0 Y y > 0 , 2) Cuadrante: x < 0 Y y > 0, etc.)*/
+
+/*
+let coordenadaEnElEjeX = parseFloat(prompt("Ingrese la coordenada en el eje X"));
+let coordenadaEnElEjeY = parseFloat(prompt("Ingrese la coodenada en el eje Y"));
+
+if(coordenadaEnElEjeX > 0 && coordenadaEnElEjeY > 0 ){
+
+    console.log(`La coordenada (${coordenadaEnElEjeX.toFixed(2)},${coordenadaEnElEjeY.toFixed(2)}) esta en el primer cuadrante`);
+
+}
+
+else if(coordenadaEnElEjeX < 0 && coordenadaEnElEjeY > 0 ){
+
+console.log(`La coordenada (${coordenadaEnElEjeX.toFixed(2)},${coordenadaEnElEjeY.toFixed(2)}) esta en el segundo cuadrante`);
+
+}
+
+else if(coordenadaEnElEjeX < 0 && coordenadaEnElEjeY < 0 ){
+
+console.log(`La coordenada (${coordenadaEnElEjeX.toFixed(2)},${coordenadaEnElEjeY.toFixed(2)}) esta en el tercer cuadrante`);
+
+}
+
+else{
+ 
+    console.log(`La coordenada (${coordenadaEnElEjeX.toFixed(2)},${coordenadaEnElEjeY.toFixed(2)}) esta en el cuarto cuadrante`); 
+
+}*/
+
+
+//---------------------------------------------------------------------------------------------
+
+/*De un operario se conoce su sueldo y los años de antiguedad. Se pide confeccionar un programa que lea los datos de entrada e informe:
+a) Si el sueldo es inferior a 500 y su antiguedad es igual o superior a 10 años, otorgarle un aumento del 20%, mostrar el sueldo a pagar.
+b) Si el sueldo es inferior a 500 pero su antiguedad es menor a 10 años, otorgarle un aumento de 5%.
+c) Si el sueldo es mayor o igual a 500 mostrar el sueldo en la pagina sin cambios.*/
+
+/*
+let sueldoOperario = parseInt(prompt("Ingrese el sueldo del operario"));
+let antiguedad = parseInt(prompt("Ingrese la antiguedad del operario en años"));
+
+if (sueldoOperario>0 && sueldoOperario<500 && antiguedad>=10){
+
+    console.log(`El sueldo a pagar es de: $${((sueldoOperario*0.2)+sueldoOperario)}`);
+}
+
+else if (sueldoOperario>0 && sueldoOperario<500 && antiguedad>0 && antiguedad <10){
+
+console.log(`El sueldo a pagar es de: $${((sueldoOperario*0.05)+sueldoOperario)}`);
+}
+
+else if (sueldoOperario>=500 && antiguedad > 0 ){
+
+console.log(`El sueldo a pagar es de: $${sueldoOperario}`);
+}
+
+else{
+    console.log("Los valores negativos no esta estipulados");
+}*/
+
+
+//---------------------------------------Switch-------------------------------------------------
+
+
+/*Solicitar el ingreso alguna de estas palabras (casa, mesa, perro, gato) luego mostrar la palabra traducida en inglés. Es decir, si se ingresa 'casa' debemos mostrar el texto 'house' en la página.*/
+
+/*
+let palabra = prompt("Ingrese alguna de estas palabras (Casa, Mesa, Perro, Gato)");
+
+switch(palabra.toLocaleLowerCase()){
+
+    case "casa":
+        console.log("House");
+    break;
+
+    case "mesa":
+        console.log("Table");
+    break;
+
+    case "perro":
+        console.log("Dog");
+    break; 
+
+    case "gato":
+        console.log("Cat");
+    break;
+
+    default:
+        console.log("La opcion introducida no esta especificada");
+    break;    
+}*/
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

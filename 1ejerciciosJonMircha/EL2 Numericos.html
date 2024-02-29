@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+/*
+9) Programa una función que obtenga un numero aleatorio entre 501 y 600.*/
+
+//--------------------------Forma 1-----------------------
+
+/*
+const numeroAleatorio = () =>
+console.log(Math.round(Math.random() *100 + 500));
+
+numeroAleatorio();*/
+
+//-------------Forma 2 para cualquier rango----------------
+/*
+const numeroAleatorio = (max, min) =>
+console.log(Math.round(Math.random() * (max - min) + min));
+
+let maximo = parseInt(prompt("Ingrese un numero superior"));
+let minimo = parseInt(prompt("Ingrese un numero inferior"));
+numeroAleatorio(maximo, minimo);*/
+
+
+
+
+
+/*
+10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.*/
+
+/*
+const capicua = (numero = 0) =>{
+
+//---------------------------------------VALIDACIONES-----------------------------------------    
+if (!numero) return console.warn("No ingresaste un número");
+
+if (typeof numero !== "number") return console.error(`El valor "${numero}" ingresado, NO es un numero`);//con typeof para validar que el dato ingresado es un numero.
+
+//---------------------------------------PROGRAMA-----------------------------------------
+numero = numero.toString();
+alReves = numero.split("").reverse().join("");
+
+return(numero===alReves)
+ ?console.info(`Sí es capícua, Número original ${numero}; Número al revés ${alReves}`)
+ :console.info(`No es capícua, Número original ${numero}; Número al revés ${alReves}`)
+
+}
+
+capicua("f");*/
+
+
+
+
+
+/*
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+
+//No se puede sacar el factorial de numeros negativos o cero
+
+/*
+const factorial = (numero=undefined)=>{
+ 
+    if (numero===undefined)return console.warn(" No ingresate un numero");
+
+    if (typeof numero !== "number") return console.error(`El valor "${numero}" ingresado, NO es un numero`);
+
+    if (numero===0)return console.error(" El numero no puede ser 0");
+
+    if (Math.sign(numero)===-1) return console.error(" El numero no puede ser negativo");
+
+    
+    let factorial = 1;
+
+    for(let i=numero; i>1;i--){
+     
+     //factorial = factorial*i;
+     factorial *= i;
+
+    }
+
+     return console.info(`El factorial de ${numero} es ${factorial}`);
+
+}
+
+factorial(-1);*/
+
+
+
+/*
+12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.*/
+
+/*
+const numeroPrimo = (numero = undefined) => {
+
+ if(numero=== undefined) return  console.warn("No ingresaste un numero");
+
+ if (typeof numero !== "number") return console.error(`El valor "${numero}" ingresado, NO es un numero`);
+
+ if (numero===0 || numero === 1) return console.warn("Cero es un numero primo");
+
+ if (numero === 1) return console.warn("Uno no es un  numero primo");
+
+ if (Math.sign(numero)===-1) return console.warn("Los numeros negativos no son primos");
+
+
+let divisible = false;
+
+for(let i=2; i<numero; i++){
+
+    if((numero%i)===0){ //Si durante la iteracción el modulo es igual a cero NO es primo.
+        divisible = true;
+        break;
+    }
+
+}
+
+return(divisible)
+?console.log("El numero NO es primo")
+ :console.log("El numero es primo")
+
+}
+
+// let valor = parseInt(prompt("Ingrese un numero"));
+numeroPrimo(7);*/
+
+
+
+
+
+
+/*
+13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.*/
+
+/*
+const numeroParImpar = (numero = undefined) =>{
+
+ if (numero===undefined) return console.warn("No ingresaste un numero");
+ 
+ if (typeof numero !== 'number') return console.warn("No ingresaste un dato numerico");
+
+ return (numero%2=== 0 || numero === 0)
+ ?console.log("El numero es par")
+  :console.log("El numero NO es par")
+
+}
+
+numeroParImpar(1);*/
+
+
+
+
+/*
+14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.*/
+
+/*
+const convertirGrados = (grados = undefined, unidad = undefined) => {
+
+//---------------------------------------VALIDACIONES-----------------------------------------    
+if(grados=== undefined) return  console.warn("No ingresaste grados a convertir");
+
+if (typeof grados !== "number") return console.error(`El valor "${grados}" ingresado, NO es un numero`);
+
+if(unidad=== undefined) return  console.warn("No ingresaste el tipo de nomenclatura de grado a convertir");
+
+if (typeof unidad !== "string") return console.error(`El valor "${unidad}" ingresado, NO es una cadena de texto o caracter`);
+
+//Se comprueba que la cadena no sea mayor a un caracter. 
+if (unidad.length !== 1) return console.warn("La cadena de texto es mayor a un caracter");
+
+// Y que tambien mediante un expresion regular se compruebe mediante (test) que se esten ingresando las letra C o la letra F.
+if ( !/(C|F)/ig.test(unidad) ) return console.warn("El valor de unidad es diferente a c(C) o f(F)");
+
+
+//---------------------------------------PROGRAMA-----------------------------------------------
+if (unidad === "C"){
+return console.log(`${grados}°C = ${Math.round((grados*(9/5)+32))}°F`)
+}
+
+if (unidad === "F"){
+return console.log(`${grados}°F = ${Math.round((grados - 32)*(5/9))}°C`)
+}
+
+}
+
+convertirGrados( 100, "F");*/
+
+
+
+
+
+/*
+15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.*/
+
+/*
+const convertirBinarioDecimal = (numero = undefined, base = undefined) =>{
+
+//---------------------------------------VALIDACIONES-----------------------------------------
+if(numero=== undefined) return  console.warn("No ingresaste un numero");
+
+if (typeof numero !== "number") return console.error(`El valor "${numero}" ingresado, NO es un numero`);
+
+if(base=== undefined) return  console.warn("No ingresaste una base");
+
+if (typeof base !== "number") return console.error(`El valor "${base}" ingresado, NO es un numero`);
+
+if ( !/(10|2)/.test(base)) return console.warn("Si el valor de la base es diferente 10 ó 2, El tipo de base a convertir NO ES VALIDA");
+
+//---------------------------------------PROGRAMA-----------------------------------------------
+
+if (base===2){
+    return console.log(`${numero} en base ${base} = es el numero ${parseInt(numero, base)} en base 10`) //Con parseInt podemos convertir un numero en base 2 a base 10.
+} 
+
+if (base===10){
+    return console.log(`${numero} en base ${base} = Es el numero ${numero.toString(base)} en base 10`) //Con toString(2) podemos convertir un numero a binario(base2).
+}
+
+
+// else{
+//     return console.error("El tipo de base a convertir NO ES VALIDA")
+// }
+
+}
+
+convertirBinarioDecimal(100, 2);*/
+
+
+
+/*
+16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.*/
+/*
+const montoFinal = (monto = undefined, descuento = undefined) =>{
+
+//---------------------------------------VALIDACIONES-----------------------------------------
+if(monto=== undefined) return  console.warn("No ingresaste un monto");
+
+if (typeof monto !== "number") return console.error(`El valor "${monto}" ingresado, NO es un numero`);
+
+if(descuento=== undefined) return  console.warn("No ingresaste un descuento");
+
+if (typeof descuento !== "number") return console.error(`El valor "${descuento}" ingresado, NO es un numero`);
+
+if (descuento > 100) return console.error("El descuento no puede ser mayor a 100%, ni mayor al monto");
+
+if (monto ===0) return console.error("El monto o descuento no pueden ser iguales a cero");
+
+if (Math.sign(monto)===-1 || Math.sign(descuento)===-1 ) return console.error("El monto o descuento no pueden ser negativos");
+
+
+
+//---------------------------------------PROGRAMA-----------------------------------------------
+
+return console.info(`El descuento aplicado a la cantidad ingresada es: $${monto} es $${monto-(monto*(descuento/100))}`);
+
+
+
+}
+
+montoFinal(80, 100);*/
+
+
+
+
+/*
+17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
+
+const calcularAnios = (fecha = undefined) => {
+
+//---------------------------------------VALIDACIONES-----------------------------------------
+if(fecha === undefined) return  console.warn("No ingresaste la fecha");
+
+if (!(fecha instanceof Date)) return console.error(`El valor  ingresado, NO es una fecha valida`);
+
+
+//---------------------------------------PROGRAMA-----------------------------------------------
+
+let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+ aniosEnMs = 1000*60*60*24*365
+aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMs);
+
+return (Math.sign(aniosHumanos) === -1)
+ ?console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`)
+ :(Math.sign(aniosHumanos) === -1)
+  ?console.info(`Han pasado ${aniosHumanos} años desde ${fecha.getFullYear()}.`)
+  :console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
+
+}
+calcularAnios(new Date(1984,4,23));
+
+  </script>
+
+
+
+
+</body>
+</html>

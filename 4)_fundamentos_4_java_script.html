@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Fundamentos Parte 4 POO Java Script</h1>
+
+<script>
+
+
+console.log
+    ("**************************PROGRAMACION ORIENTADA A OBJETOS (POO)***********************");
+
+/*
+En POO hay 4 conceptos muy importantes que se deben entender
+
+Clases: Modelo a seguir. Todas las clases generadas en JavaScript son "Públicas".
+Objeto: Es una instancia de una clase, es decir una copia del modelo a seguir.
+        Los objetos tienen:
+
+        - Atributos : Son una caracteristica o propiedad del objeto. Tambien se les conoce como  las variables dentro de un objeto.
+
+        - Metodos: Son las acciones que un objeto puede realizar. Tambien se les conoce como funciones dentro de un objeto.
+*/
+
+console.log
+    ("************************************PROTOTIPOS*****************************************");
+
+/*Clase 22. Los prototipos son un mecanismo por el cual un objeto puede heredar caracteristicas, es decir atributos y metodos(funciones), de un objeto padre. */
+
+// Tambien se puede decir que es un objeto de delegación utilizado para implementar la herencia basada en prototipos.
+
+//Cada objeto, cuando se crea, recibe su prototipo, Si el prototipo no está establecido explícitamente, los objetos reciben un prototipo predeterminado como su objeto de herencia.
+
+//---------------------------------------Prototype Object---------------------------------------
+
+// El prototipo más primitivo es el prototipo objeto, es decir un objeto.
+
+// Se tendrian que copiar varios Prototipos objeto basados en el principal; en el caso que se requiera  generar otro objeto basado en el primero. Es decir que para generar otro objeto basado en el objeto animal del ejemplo, se tendria que copiar el codigo de este y modificar sus atributos y metodos si asi se requiere, para crear otros prototipos. Pero Esto no seria funcional.
+
+// Animal es el prototipo objecto principal, animal2 y animal3 las copias de este.
+const animal = {
+    
+    nombre: "Leon",
+    genero: "Hembra",
+    sonar(){
+
+        console.log("Su sonido es rugir");
+    }
+}
+
+const animal2 = {
+    
+    nombre: "Perro",
+    genero: "Macho",
+    sonar(){
+
+        console.log("Su sonido es ladrar");
+    }
+}
+
+const animal3 = {
+    
+    nombre: "Gato",
+    genero: "Hembra",
+    sonar(){
+
+        console.log("Su sonido es maullar");
+    }
+}
+console.log(animal);
+console.log(animal2);
+console.log(animal3);
+
+
+//-------------------------------------FUNCION CONSTRUCTORA((FC)--------------------------------
+
+
+//La funcion construtora se crea una sola vez, y apartir de ella se generan nuevas instancias(objetos).
+
+// En la funcion construtora tanto atributos como metodos deben estar precedidos de la palabra resevada THIS
+
+// En este caso la FC Animal recibe los parametros nombre y genero del animal
+function Animal(nombre, genero){
+
+    // Dentro de una función constructora, la palabra reservada this se refiere a la misma funcion.
+
+    
+//Atributos (this.name y this.gender son los atributos de la funcion construtora.)
+    this.name = nombre; // this.name sera igual a valor del parametro que el usuario introduzca en nombre
+                             
+    this.gender = genero; //this.gender sera igual a valor del parametro que el usuario introduzca en genero
+    
+    //La sintaxis de escritura de los metodos(funciones) en objetos literales no aplica para FC(ver fundamentos 3 objetos literales)
+
+//Metodos    
+    this.sonar = function(){ 
+
+        console.log("Hago sonidos porque estoy vivo");
+
+    }
+
+    this.saludar = function(){
+
+     console.log(`Hola me llamo ${this.name}`);
+
+    }
+}
+
+//Cada uno de estos es un PROTOTIPO de la FC Animal
+const leon = new Animal("Leon","Hembra")
+const perro = new Animal("Perro","Macho")
+const gato = new Animal("Gato","Hembra")
+
+// La palabra reservada NEW permite crear un nuevo objeto o instancia del tipo que se requiera(String, array, objeto, etc). Pero para este caso en particular se requiere crear una nueva variable basada en la FC animal.
+
+// Entonces con NEW creariamos ese nuevo objeto y asi nos ahorrariamos el paso de tener que copiar varios Prototipos objecto basados en el principal, y el codigo seria más eficiente.
+
+//Es decir si se requiere crear varias instancias(objetos), se debe usar una Funcion constructor y no tener que copiar y pegar varios prototipos objecto basandose en el principal
+
+
+console.log(leon); //Imprimimos cada objeto
+console.log(perro);
+console.log(gato);
+
+leon.sonar();
+perro.sonar();
+gato.sonar();
+
+leon.saludar();
+perro.saludar();
+gato.saludar();
+
+//------- SI SE REQUIERE QUE LA APLICACION TENGA UN MEJOR RENDIMIENTO SE HACE LO SIGUINETE:-----
+
+//Cuando se tenga una Funcion Construtora de la cual se pretenda crear prototipos. Lo ideal es que la FC Contenga  los Atributos y los Metodos(funciones) se los "peguemos" al prototipo de la FC, de la siguiente forma:
+
+//Funcion Constructora donde asignamos los métodos al Prototipo, no a la función como tal.
+
+//Es decir sacamos los metodos de la FC
+
+function LigaFutebol(jugador, pierna){
+
+//Atributos
+this.player = jugador; 
+this.leg = pierna;
+}
+
+//Métodos agregados al prototipo de la FC LigaFutebol
+LigaFutebol.prototype.gambeta = function(){
+
+console.log("Jugada de dribling de un jugador");
+}
+
+LigaFutebol.prototype.saludacoes = function(){
+
+    console.log(`Hola me llamo ${this.player}`);
+}
+
+//Prototipos de La FC LigaFutebol
+const messi = new LigaFutebol("Lio","Zurdo")
+const ronaldinho = new LigaFutebol("Ronny","Derecho")
+const ronaldo = new LigaFutebol("Fenomeno","Derecho")
+
+console.log(messi);
+console.log(ronaldinho);
+console.log(ronaldo);
+
+messi.gambeta();
+ronaldinho.gambeta();
+ronaldo.gambeta();
+
+messi.saludacoes();
+ronaldinho.saludacoes();
+ronaldo.saludacoes();
+
+
+console.log
+    ("******************************HERENCIA PROTOTIPICA*************************************");
+
+//El tema no me quedo muy claro.    
+
+// Herencia Prototipica clase 23, la herencia es la capacidad de heredar cracteristica de un padre a un hijo.
+
+// Se genera una FC para crear el prototipo leyenda 
+function leyenda(jugador, pierna, nacionalidad){
+
+  this.super = LigaFutebol; // Con super invocamos la FC LigaFutebol, que es el elemento padre
+  this.super(jugador, pierna);//Son los parametros que recibe la FC LigaFutebol
+  this.nacionalidad = nacionalidad;
+}
+
+//leyenda esta HEREDANDO de LigaFutebol
+leyenda.prototype = new LigaFutebol();
+leyenda.prototype.constructor = leyenda;
+
+//Sobre escritura de métodos del Prototipo padre en el hijo
+leyenda.prototype.gambeta = function(){
+
+console.log("Jugada de dribling de un jugador");
+
+}
+
+leyenda.prototype.genialidad = function(){
+
+   console.log("Jugada que hacen los grandes jugadores")
+
+}
+
+const messi1 = new leyenda("Lio", "Zurdo", "Argentino")
+const ronaldinho1 = new leyenda("Ronny","Derecho", "Brasilero")
+const ronaldo1 = new leyenda("Fenomeno","Derecho", "Brasilero")
+
+
+console.log(messi1);
+console.log(ronaldinho1);
+console.log(ronaldo1);
+
+messi1.gambeta();
+ronaldinho1.gambeta();
+ronaldo1.gambeta();
+
+messi1.genialidad();
+ronaldinho1.genialidad();
+ronaldo1.genialidad();
+
+
+console.log
+    ("*********************************CLASES Y HERENCIA*************************************");
+
+//Clase 24. Clases y Herencia 
+
+class Estadio{//Las clases no reciben parametros
+   
+   /*El constructor de una clase es un método especial que se ejecuta en el momento de instanciar la clase*/
+   constructor (nombre, ciudad){
+   
+   //Atributos
+   this.name = nombre;
+   this.city= ciudad;
+
+   }
+  //Metodos: Se usa la sintaxis de escritura para objetos literales
+   utilidad(){
+       console.log("En mi campo juegan futbol");
+   }
+
+   definicion(){
+
+       console.log(`Soy el estadio ${this.name}`);
+   }
+
+}
+
+//Herencia
+
+//La palabra reservada extends es usada en la declaración o expresión de clases, para crear una clase hija de otra.
+
+//Clase hija de Estadio
+class Cancha extends Estadio{
+
+constructor(nombre, ciudad, pais){
+
+// Con el metodo super() se manda a llamar el constructor de la clase padre(Estadio).
+super(nombre, ciudad);
+this.country = pais;
+
+}
+potrero(){
+    console.log(`Cancha barrial de un País`);
+   }
+
+}
+
+//Prototipos
+const campNou = new Estadio("camp Nou", "Barcelona");
+ sanSiro= new Cancha ("San Siro", "Milán", "Italia");
+
+console.log(campNou, sanSiro);
+
+campNou.utilidad();
+campNou.definicion();
+sanSiro.utilidad();
+sanSiro.definicion();
+sanSiro.potrero();
+
+
+console.log
+    ("***********************METODOS ESTATICOS, GETTERS Y SETTERS****************************");
+
+//Clase 25. Métodos estáticos, getters y setters. 
+
+//Un Método Estático, se puede ejecutar sin necesidad de instanciar la clase, es decir sin necesidad de crear un modelo.
+
+//Todas las clases generadas en JavaScript son "Públicas".
+
+class Trabajador{
+   
+
+   constructor (nombre, empleo){
+   
+   this.name = nombre;
+   this.job= empleo;
+   this.etnia = null; //Creamos una variable que se llame etnia y sea nulo
+
+   }
+
+   tipo(){
+       console.log("trabajo que realizo");
+   }
+
+   cargo(){
+
+       console.log(`Mi empleo es de ${this.job}`);
+   }
+
+//Un Método Estático, se puede ejecutar sin necesidad de instanciar la clase, sin necesidad de crear un modelo. 
+
+//Es decir sin la necesidad de haber creado un prototipo/objeto del tipo de la clase Trabajador, se podría ejecutar  directamente un metodo que se haya definido como estatico, mandando a llamar el nombre de la clase.
+
+static queEres(){
+
+    console.log("Un trabajador es la persona física que con la edad legal mínima presta servicios retribuidos subordinados a otra persona, a una empresa o institución");
+}
+
+//Los getters y setters son métodos especiales que nos permiten obtener y establecer los valores de atributos de nuestra clase. 
+
+//Los getters y setters aunque son metodos se utlizan como si fueran atributos.
+
+//Un método obtenedor(GET), retorna el valor de una propiedad en cuestion. Para este caso this.etnia.
+get getEtnia(){
+    return this.etnia;
+}
+
+// Y se utiliza un metodo establecedor(SET) para modificar dicha propiedad
+set setEtnia(etnia){
+ this.etnia = etnia; //A la propiedad this.etnia, se le asigna el valor que esta recibiendo en el set(que es etnia).
+}
+
+
+}
+
+
+const pepe = new Trabajador("Pedro", "Ingeniero");
+const manuel= new Trabajador("Manuel", "Profesor");
+
+console.log(pepe);
+console.log(manuel);
+
+pepe.tipo();
+pepe.cargo();
+manuel.tipo();
+manuel.cargo();
+
+//Imprimimos el metodo estatico, llamando el nombre de la clase.
+Trabajador.queEres();
+
+//Si imprimimos el get directamente, nos retornaria null, ya que es el valor inicial de this.etnia.
+console.log(pepe.getEtnia);
+
+//Tenemos que agregar un valor al set para modificar this.etnia y ahora si get nos retorne el valor agregado.
+pepe.setEtnia = "Indigena";
+console.log(pepe.getEtnia);
+
+manuel.setEtnia = "Negro";
+console.log(manuel.getEtnia);
+
+</script>
+
+
+</body>
+</html>
